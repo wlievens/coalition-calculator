@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row">
+    <div class="col-4">
+      <h2>Parties</h2>
+      <cc-party-table [parties]="parties"></cc-party-table>
+
+      <h2>Exclusions</h2>
+      <cc-party-list [parties]="exclusion" *ngFor="let exclusion of exclusions"></cc-party-list>
+
+      <h2>Pairs</h2>
+      <cc-party-list [parties]="pair" *ngFor="let pair of pairs"></cc-party-list>
+    </div>
+    <div class="col-8">
+      <h2>Coalitions</h2>
+      <p *ngIf="coalitions">There are <b>{{coalitions.length}}</b> valid coalitions!</p>
+      <cc-coalition [coalition]="coalition" *ngFor="let coalition of coalitions"></cc-coalition>
+    </div>
+  </div>
+</div>

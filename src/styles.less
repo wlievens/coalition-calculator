@@ -1,0 +1,30 @@
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+@color-border: #c4c4c4;
+@size-color-indicator: 18px;
+
+h2 {
+  font-size: 130%;
+  border-bottom: 1px solid @color-border;
+  padding-bottom: 8px;
+  margin-bottom: 8px;
+  margin-top: 8px;
+}
+
+.narrow {
+  width: 1px;
+}
+
+.color-indicator {
+  display: inline-block;
+  width: @size-color-indicator;
+  height: @size-color-indicator;
+  vertical-align: middle;
+  border: 1px solid @color-border;
+  border-radius: 0;
+}
+
+.flag {
+  border: 1px solid @color-border;
+  height: @size-color-indicator;
+}
