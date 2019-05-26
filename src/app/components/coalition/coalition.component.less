@@ -1,9 +1,21 @@
+@import '../../../variables.less';
+
+@bar-height: 20px;
+
+.row {
+  border: 1px solid @color-border;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  margin-left: 0;
+  margin-right: 0;
+}
+
 .coalition-container {
   display: inline-block;
   position: relative;
   background-color: #e5e5e5;
   border: 1px solid #c4c4c4;
-  height: 14px;
+  height: @bar-height;
   width: 100%;
 }
 
@@ -11,7 +23,7 @@
   display: inline-block;
   float: left;
   width: 0;
-  height: 12px;
+  height: @bar-height - 2px;
   margin: 0;
   padding: 0;
 }

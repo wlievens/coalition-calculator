@@ -1,11 +1,17 @@
-<div class="row border-bottom" *ngIf="coalition">
-  <div class="col-7">
-    <ng-container *ngFor="let party of coalition.majority; let index = index">
-      <span *ngIf="index > 0"> + </span>
-      <span>{{party.name}}</span>
-    </ng-container>
+<div class="row" *ngIf="coalition">
+  <div class="col-5">
+    <div *ngFor="let segment of ['VL','WA']">
+      <ng-container *ngFor="let party of coalition.majority">
+        <ng-container *ngIf="party.segment === segment">
+          &bull;
+          <span [style.border-bottom-color]="party.color" style="border-bottom-style: solid; border-bottom-width: 1px;">
+            {{party.name}}
+          </span>
+        </ng-container>
+      </ng-container>
+    </div>
   </div>
-  <div class="col-3">
+  <div class="col-5">
     <div class="coalition-container">
       <ng-container *ngFor="let party of coalition.majority">
         <div class="coalition-bar"

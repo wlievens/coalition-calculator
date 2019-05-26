@@ -23,34 +23,37 @@ export class MainPageComponent implements OnInit {
   }
 
   ngOnInit() {
+    const VL = 'VL';
+    const WA = 'WA';
     const parties = [
-      /*  0 */ new Party('VL', 'N-VA', '#d8d326', 25),
-      /*  1 */ new Party('WA', 'PS', '#dc3a26', 20),
-      /*  2 */ new Party('VL', 'VB', '#766a2d', 18),
-      /*  3 */ new Party('WA', 'MR', '#3e5e9d', 14),
-      /*  4 */ new Party('WA', 'Ecolo', '#71cb6c', 13),
-      /*  5 */ new Party('VL', 'Open Vld', '#47749d', 12),
-      /*  6 */ new Party('VL', 'CD&V', '#ffa43c', 11),
-      /*  7 */ new Party('VL', 'sp.a', '#cd3436', 9),
-      /*  8 */ new Party('VL', 'Groen', '#379c4b', 9),
-      /*  9 */ new Party('WA', 'PTB', '#641919', 7),
-      /* 10 */ new Party('WA', 'cdH', '#d16f33', 5),
-      /* 11 */ new Party('VL', 'PVDA', '#641919', 5),
-      /* 12 */ new Party('WA', 'Défi', '#3794c0', 2),
+      new Party(VL, 'N-VA', '#d8d326', 25),
+      new Party(WA, 'PS', '#dc3a26', 18),
+      new Party(VL, 'VB', '#766a2d', 18),
+      new Party(WA, 'MR', '#3e5e9d', 15),
+      new Party(WA, 'Ecolo', '#71cb6c', 13),
+      new Party(VL, 'CD&V', '#ffa43c', 13),
+      new Party(VL, 'Open Vld', '#47749d', 11),
+      new Party(WA, 'PTB', '#641919', 6),
+      new Party(VL, 'sp.a', '#cd3436', 9),
+      new Party(VL, 'Groen', '#379c4b', 8),
+      new Party(WA, 'cdH', '#d16f33', 7),
+      new Party(VL, 'PVDA', '#641919', 5),
+      new Party(WA, 'Défi', '#3794c0', 2),
     ];
 
     const exclusions = [
-      [parties[2]],
-      [parties[0], parties[9]],
-      [parties[0], parties[11]],
-      [parties[0], parties[12]],
-      [parties[6], parties[9]],
-      [parties[6], parties[11]],
+      [this.getParty(parties, 'VB')],
+      [this.getParty(parties, 'N-VA'), this.getParty(parties, 'PTB')],
+      [this.getParty(parties, 'N-VA'), this.getParty(parties, 'PVDA')],
+      [this.getParty(parties, 'N-VA'), this.getParty(parties, 'Défi')],
+      [this.getParty(parties, 'Open Vld'), this.getParty(parties, 'PTB')],
+      [this.getParty(parties, 'Open Vld'), this.getParty(parties, 'PVDA')],
     ];
 
     const pairs = [
-      [parties[5], parties[8]],
-      [parties[9], parties[11]],
+      [this.getParty(parties, 'PS'), this.getParty(parties, 'sp.a')],
+      [this.getParty(parties, 'Ecolo'), this.getParty(parties, 'Groen')],
+      [this.getParty(parties, 'PTB'), this.getParty(parties, 'PVDA')],
     ];
 
     parties.sort((a, b) => b.seats - a.seats);
@@ -64,5 +67,9 @@ export class MainPageComponent implements OnInit {
 
   calculateCoalitions() {
     this.coalitions = this.coalitionCalculatorService.calculateCoalitions(this.parties, this.exclusions, this.pairs, 0, true, this.segmented);
+  }
+
+  getParty(parties: Party[], name: string): Party {
+    return parties.find(party => party.name === name);
   }
 }
