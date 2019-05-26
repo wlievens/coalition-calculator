@@ -1,15 +1,12 @@
 <table class="table table-sm table-striped table-bordered table-hover">
   <thead>
   <tr>
-    <th class="text-left text-nowrap" colspan="4">Party</th>
-    <th class="text-right text-nowrap" colspan="1">Seats</th>
+    <th class="text-left text-nowrap" colspan="3">Partij</th>
+    <th class="text-right text-nowrap" colspan="1">Zetels</th>
   </tr>
   </thead>
   <tbody>
   <tr *ngFor="let party of parties">
-    <td class="text-right text-nowrap narrow">
-      <input type="checkbox" [ngModel]="party.excluded">
-    </td>
     <td class="text-left narrow">
       <img class="flag" [attr.src]="'/assets/flag-' + (party.segment | lowercase) + '.png'">
     </td>
@@ -26,7 +23,7 @@
   </tbody>
   <tfoot>
   <tr>
-    <th class="text-left" colspan="4">Total</th>
+    <th class="text-left" colspan="3">Totaal</th>
     <th class="text-right text-nowrap narrow">{{totalSeats}}</th>
   </tr>
   </tfoot>

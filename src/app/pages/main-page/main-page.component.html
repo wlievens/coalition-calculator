@@ -1,18 +1,22 @@
 <div class="container">
   <div class="row">
     <div class="col-4">
-      <h2>Parties</h2>
+      <h2>Partijen</h2>
       <cc-party-table [parties]="parties"></cc-party-table>
 
-      <h2>Exclusions</h2>
+      <h2>Uitgesloten Combinaties</h2>
       <cc-party-list [parties]="exclusion" *ngFor="let exclusion of exclusions"></cc-party-list>
 
-      <h2>Pairs</h2>
+      <h2>Verplichte Paren</h2>
       <cc-party-list [parties]="pair" *ngFor="let pair of pairs"></cc-party-list>
     </div>
     <div class="col-8">
-      <h2>Coalitions</h2>
-      <p *ngIf="coalitions">There are <b>{{coalitions.length}}</b> valid coalitions!</p>
+      <h2>Coalities</h2>
+      <label>
+        <input type="checkbox" [(ngModel)]="segmented" (ngModelChange)="calculateCoalitions()">
+        Meerderheid aan Vlaamse &amp; Waalse kant noodzakelijk
+      </label>
+      <p *ngIf="coalitions">Er zijn <b>{{coalitions.length}}</b> mogelijke coalities!</p>
       <cc-coalition [coalition]="coalition" *ngFor="let coalition of coalitions"></cc-coalition>
     </div>
   </div>
