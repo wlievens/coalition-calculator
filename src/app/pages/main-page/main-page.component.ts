@@ -27,17 +27,17 @@ export class MainPageComponent implements OnInit {
     const WA = 'WA';
     const parties = [
       new Party(VL, 'N-VA', '#d8d326', 25),
-      new Party(WA, 'PS', '#dc3a26', 18),
+      new Party(WA, 'PS', '#dc3a26', 20),
       new Party(VL, 'VB', '#766a2d', 18),
-      new Party(WA, 'MR', '#3e5e9d', 15),
+      new Party(WA, 'MR', '#3e5e9d', 14),
       new Party(WA, 'Ecolo', '#71cb6c', 13),
-      new Party(VL, 'CD&V', '#ffa43c', 13),
-      new Party(VL, 'Open Vld', '#47749d', 11),
-      new Party(WA, 'PTB', '#641919', 6),
+      new Party(VL, 'CD&V', '#ffa43c', 12),
+      new Party(VL, 'Open Vld', '#47749d', 12),
       new Party(VL, 'sp.a', '#cd3436', 9),
       new Party(VL, 'Groen', '#379c4b', 8),
-      new Party(WA, 'cdH', '#d16f33', 7),
+      new Party(WA, 'PTB', '#641919', 7),
       new Party(VL, 'PVDA', '#641919', 5),
+      new Party(WA, 'cdH', '#d16f33', 5),
       new Party(WA, 'Défi', '#3794c0', 2),
     ];
 
