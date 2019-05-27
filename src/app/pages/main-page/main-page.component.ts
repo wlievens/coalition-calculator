@@ -15,6 +15,9 @@ export class MainPageComponent implements OnInit {
 
   coalitions: Coalition[];
 
+  exclusionsActive: boolean = true;
+  pairsActive: boolean = true;
+  minimal: boolean = true;
   segmented: boolean = true;
 
   constructor(
@@ -51,7 +54,6 @@ export class MainPageComponent implements OnInit {
     ];
 
     const pairs = [
-      [this.getParty(parties, 'PS'), this.getParty(parties, 'sp.a')],
       [this.getParty(parties, 'Ecolo'), this.getParty(parties, 'Groen')],
       [this.getParty(parties, 'PTB'), this.getParty(parties, 'PVDA')],
     ];
@@ -66,7 +68,7 @@ export class MainPageComponent implements OnInit {
   }
 
   calculateCoalitions() {
-    this.coalitions = this.coalitionCalculatorService.calculateCoalitions(this.parties, this.exclusions, this.pairs, 0, true, this.segmented);
+    this.coalitions = this.coalitionCalculatorService.calculateCoalitions(this.parties, this.exclusionsActive ? this.exclusions : [], this.pairsActive ? this.pairs : [], 0, this.minimal, this.segmented);
   }
 
   getParty(parties: Party[], name: string): Party {

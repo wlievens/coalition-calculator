@@ -12,10 +12,30 @@
     </div>
     <div class="col-8">
       <h2>Coalities</h2>
-      <label>
-        <input type="checkbox" [(ngModel)]="segmented" (ngModelChange)="calculateCoalitions()">
-        Meerderheid aan Vlaamse &amp; Waalse kant noodzakelijk
-      </label>
+      <p>
+        <label>
+          <input type="checkbox" [(ngModel)]="segmented" (ngModelChange)="calculateCoalitions()">
+          Meerderheid aan Vlaamse &amp; Waalse kant noodzakelijk
+        </label>
+      </p>
+      <p>
+        <label>
+          <input type="checkbox" [(ngModel)]="minimal" (ngModelChange)="calculateCoalitions()">
+          Enkel minimale coalities tonen
+        </label>
+      </p>
+      <p>
+        <label>
+          <input type="checkbox" [(ngModel)]="exclusionsActive" (ngModelChange)="calculateCoalitions()">
+          Rekening houden met uitsluitingen
+        </label>
+      </p>
+      <p>
+        <label>
+          <input type="checkbox" [(ngModel)]="pairsActive" (ngModelChange)="calculateCoalitions()">
+          Rekening houden met paren
+        </label>
+      </p>
       <p *ngIf="coalitions">Er zijn <b>{{coalitions.length}}</b> mogelijke coalities!</p>
       <cc-coalition [coalition]="coalition" *ngFor="let coalition of coalitions"></cc-coalition>
     </div>
