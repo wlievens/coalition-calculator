@@ -1,9 +1,6 @@
 <table class="table table-sm table-striped table-bordered table-hover">
   <tbody>
   <tr *ngFor="let party of parties">
-    <td class="text-left narrow">
-      <img class="flag" [attr.src]="'/assets/flag-' + (party.segment | lowercase) + '.png'">
-    </td>
     <td class="text-center narrow">
       <div class="color-indicator" [style.background-color]="party.color"></div>
     </td>

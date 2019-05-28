@@ -1,8 +1,14 @@
 @import '~bootstrap/dist/css/bootstrap.min.css';
 @import 'variables.less';
 
+body, table {
+  font-family: 'Calibri';
+  font-size: 12pt;
+}
+
 h2 {
-  font-size: 130%;
+  font-size: 120%;
+  font-weight: bold;
   border-bottom: 1px solid @color-border;
   padding-bottom: 8px;
   margin-bottom: 8px;
@@ -40,4 +46,8 @@ label {
   flex-direction: column;
   flex-wrap: nowrap;
   justify-content: center;
+}
+
+table, tr, td, th {
+  border-color: @color-border !important;
 }

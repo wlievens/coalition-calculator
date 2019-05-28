@@ -1,6 +1,6 @@
 <div class="row" *ngIf="coalition">
   <div class="col-5 flex-vertical-center">
-    <div *ngFor="let segment of ['VL','WA']">
+    <div class="text-nowrap" *ngFor="let segment of ['VL','WA']">
       <ng-container *ngFor="let party of coalition.majority">
         <ng-container *ngIf="party.segment === segment">
           &bull;
